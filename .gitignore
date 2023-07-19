@@ -259,3 +259,11 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+/PayrollManager/DataLayer/PayrollDB-JoeXPS-2.cs
+/PayrollManager/DataLayer/PayrollDB.edmx.diagram
+/PayrollManager/DataLayer/PayrollDB-JoeXPS-2.edmx
+/PayrollManager/DataLayer/PayrollDB-JoeXPS.cs
+/PayrollManager/DataLayer/PayrollDB-JoeXPS.edmx
+/PayrollManager/DataLayer/CustomClasses/InsititutionAccounts-JoeXPS.cs
+/PayrollManager/ViewModels/AccountDetailsModel-JoeXPS.cs
+/PopClient/CDOMessageConverter-JoeXPS.cs
