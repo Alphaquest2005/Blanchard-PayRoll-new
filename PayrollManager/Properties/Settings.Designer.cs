@@ -12,7 +12,7 @@ namespace PayrollManager.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "14.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.6.0.0")]
     public sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -35,7 +35,8 @@ namespace PayrollManager.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute(@"metadata=res://*/DataLayer.PayrollDB.csdl|res://*/DataLayer.PayrollDB.ssdl|res://*/DataLayer.PayrollDB.msl;provider=System.Data.SqlClient;provider connection string='Data Source=.\SQLEXPRESS2016;AttachDbFilename=C:\Prism\GitRepositiory\payroll\PayRoll\PayrollManager\PayrollDB.mdf;Integrated Security=True;Connect Timeout=30;MultipleActiveResultSets=True;App=EntityFramework';")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=JOEXPS\\SQLDEVELOPER2019;Initial Catalog=PayrollDB-Blanchard;Integrate" +
+            "d Security=True")]
         public string PayrollDB {
             get {
                 return ((string)(this["PayrollDB"]));

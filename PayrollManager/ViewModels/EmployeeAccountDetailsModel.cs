@@ -13,7 +13,7 @@ namespace PayrollManager
 	{
         public EmployeeAccountDetailsModel()
 		{
-		    using (var ctx = new PayrollDB(Properties.Settings.Default.PayrollDB))
+		    using (var ctx = new PayrollDB())
 		    {
 		        _employeeAccountTypes = new ListCollectionView(ctx.AccountTypes.ToList());
 		    }
@@ -28,7 +28,7 @@ namespace PayrollManager
         {
             if (CurrentEmployeeAccount == null) return;
             var empId = CurrentEmployeeAccount.EmployeeId;
-            using (var ctx = new PayrollDB(Properties.Settings.Default.PayrollDB))
+            using (var ctx = new PayrollDB())
             {
                 
                 if (CurrentEmployeeAccount.AccountId == 0)
@@ -66,7 +66,7 @@ namespace PayrollManager
 
         public void DeleteEmployeeAccount()
         {
-            using (var ctx = new PayrollDB(Properties.Settings.Default.PayrollDB))
+            using (var ctx = new PayrollDB())
             {
                 if (CurrentEmployeeAccount == null) return;
                 int empId = CurrentEmployeeAccount.EmployeeId;
@@ -89,7 +89,7 @@ namespace PayrollManager
 
         public void NewEmployeeAccount()
         {
-            using (var ctx = new PayrollDB(Properties.Settings.Default.PayrollDB))
+            using (var ctx = new PayrollDB())
             {
                 DataLayer.EmployeeAccount newemp = ctx.EmployeeAccounts.CreateObject<EmployeeAccount>();
                 newemp.Account = ctx.Accounts.CreateObject<Account>();

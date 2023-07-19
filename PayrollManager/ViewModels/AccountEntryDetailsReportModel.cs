@@ -35,7 +35,7 @@ namespace PayrollManager
 	        {
 	            try
 	            {
-	                using (var ctx = new PayrollDB(Properties.Settings.Default.PayrollDB))
+	                using (var ctx = new PayrollDB())
 	                {
 	                    if (BaseViewModel.Instance.CurrentPayrollJob == null)
 	                        return new ObservableCollection<AccountEntrySummaryLine>();
@@ -114,7 +114,7 @@ namespace PayrollManager
 	        {
 	            try
 	            {
-	                using (var ctx = new PayrollDB(Properties.Settings.Default.PayrollDB))
+	                using (var ctx = new PayrollDB())
 	                {
 	                    if (BaseViewModel.Instance.CurrentPayrollJob == null)
 	                        return new ObservableCollection<AccountEntrySummaryLine>();

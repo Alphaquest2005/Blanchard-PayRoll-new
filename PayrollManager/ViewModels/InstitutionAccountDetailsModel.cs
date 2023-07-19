@@ -17,7 +17,7 @@ namespace PayrollManager
         {
             if (CurrentAccount == null) return;
             var instId = CurrentAccount.InstitutionId;
-            using (var ctx = new PayrollDB(Properties.Settings.Default.PayrollDB))
+            using (var ctx = new PayrollDB())
             {
                 if (CurrentAccount.AccountId == 0)
                 {
@@ -49,7 +49,7 @@ namespace PayrollManager
             var instId = CurrentAccount.InstitutionId;
             if (CurrentAccount.AccountId != 0)
 
-                using (var ctx = new PayrollDB(Properties.Settings.Default.PayrollDB))
+                using (var ctx = new PayrollDB())
                 {
                     var ritm = ctx.Accounts.OfType<InstitutionAccounts>().First(x => x.AccountId == CurrentAccount.AccountId);
                     ctx.Accounts.DeleteObject(ritm);

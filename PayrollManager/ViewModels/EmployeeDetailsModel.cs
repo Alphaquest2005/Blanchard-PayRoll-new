@@ -21,7 +21,7 @@ namespace PayrollManager
                 MessageBox.Show("Employee Must Have First Name, Last Name and Location.");
                 return;
             }
-            using (var ctx = new PayrollDB(Properties.Settings.Default.PayrollDB))
+            using (var ctx = new PayrollDB())
             {
                 
                 if (CurrentEmployee.EmployeeId == 0)
@@ -71,7 +71,7 @@ namespace PayrollManager
                 MessageBox.Show("Please Delete Employee Accounts before deleting employee.");
                 return;
             }
-            using (var ctx = new PayrollDB(Properties.Settings.Default.PayrollDB))
+            using (var ctx = new PayrollDB())
             {
                 
                 if (CurrentEmployee.EmployeeId != 0)
@@ -91,7 +91,7 @@ namespace PayrollManager
 
 	    public void NewEmployee()
 	    {
-	        using (var ctx = new PayrollDB(Properties.Settings.Default.PayrollDB))
+	        using (var ctx = new PayrollDB())
 	        {
 	            var newemp = ctx.Employees.CreateObject<DataLayer.Employee>();
 	            ctx.Employees.AddObject(newemp);
@@ -119,7 +119,7 @@ namespace PayrollManager
         internal void DeleteEmployeeAccount(DataLayer.EmployeeAccount p)
         {
             if(p.AccountId != 0)
-            using (var ctx = new PayrollDB(Properties.Settings.Default.PayrollDB))
+            using (var ctx = new PayrollDB())
             {
                 var ritm = ctx.EmployeeAccounts.FirstOrDefault(x => x.AccountId == p.AccountId);
                 ctx.EmployeeAccounts.DeleteObject(ritm);

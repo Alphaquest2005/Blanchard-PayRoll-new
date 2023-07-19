@@ -164,6 +164,7 @@
     <Compile Include="ViewModels\Common.cs" />
     <Compile Include="ViewModels\BranchEmployeeInstitutionsModel.cs" />
     <Compile Include="ViewModels\CompanySummaryListModel.cs" />
+    <Compile Include="ViewModels\GeneratePayrollItems\GeneratePayrollItems.cs" />
     <Compile Include="ViewModels\InstitutionAccountDetailsModel.cs" />
     <Compile Include="ViewModels\InstitutionDetailsModel.cs" />
     <Compile Include="ViewModels\EmployeeAccountDetailsModel.cs" />
@@ -580,16 +581,4 @@
     <Folder Include="SampleData\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath32)\Microsoft.CSharp.targets" />
-  <Import Project="..\packages\PostSharp.4.2.17\tools\PostSharp.targets" Condition="Exists('..\packages\PostSharp.4.2.17\tools\PostSharp.targets')" />
-  <!--<Target Name="EnsurePostSharpImported" BeforeTargets="BeforeBuild" Condition="'$(PostSharp30Imported)' == ''">
-    <Error Condition="!Exists('..\packages\PostSharp.4.2.17\tools\PostSharp.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://www.postsharp.net/links/nuget-restore." />
-    <Error Condition="Exists('..\packages\PostSharp.4.2.17\tools\PostSharp.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://www.postsharp.net/links/nuget-restore." />
-  </Target>-->
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-	     Other similar extension points exist, see Microsoft.Common.targets.
-	<Target Name="BeforeBuild">
-	</Target>
-	<Target Name="AfterBuild">
-	</Target>
-	-->
 </Project>

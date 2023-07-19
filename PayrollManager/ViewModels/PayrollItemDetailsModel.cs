@@ -90,7 +90,7 @@ namespace PayrollManager
         public void DeletePayrollItem()
         {
             if (CurrentPayrollItem == null) return;
-            using (var ctx = new PayrollDB(Properties.Settings.Default.PayrollDB))
+            using (var ctx = new PayrollDB())
             {
 
                 if (CurrentPayrollItem.PayrollItemId!= 0)
@@ -153,7 +153,7 @@ namespace PayrollManager
                         ;
                     }
                     
-                    itm.Amount = Math.Abs(GetPayrollAmount(itm.BaseAmount, itm).GetValueOrDefault());
+                    itm.Amount = Math.Abs(GeneratePayrollItems.GetPayrollAmount(itm.BaseAmount, itm).GetValueOrDefault());
                     var dbItm = ctx.PayrollItems.First(x => x.PayrollItemId == itm.PayrollItemId);
                     dbItm.BaseAmount = itm.BaseAmount;
                     dbItm.Amount = itm.Amount;
@@ -172,7 +172,7 @@ namespace PayrollManager
 
         public void NewPayrollItem()
         {
-            using (var ctx = new PayrollDB(Properties.Settings.Default.PayrollDB))
+            using (var ctx = new PayrollDB())
             {
                 DataLayer.PayrollItem newpi = ctx.PayrollItems.CreateObject();
                 //ctx.PayrollJobs.Attach(CurrentPayrollJob);

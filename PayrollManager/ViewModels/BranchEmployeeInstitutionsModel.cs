@@ -477,7 +477,7 @@ namespace PayrollManager
                     });
                     foreach (
                         var item in
-                            ((LinqLib.DynamicCodeGenerator.IDynamicPivotObject)_netSalaryData[0]).PropertiesNames.OrderBy(x => x))
+                            ((LinqLib.DynamicCodeGenerator.IDynamicPivotObject)_netSalaryData[0]).PropertiesNames.OrderBy(x => x).Where(x => x.Length> 3))
                     {
                         NetSalaryGrid.Columns.Add(new System.Windows.Controls.DataGridTextColumn()
                         {

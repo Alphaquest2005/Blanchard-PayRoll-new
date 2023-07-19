@@ -39,7 +39,7 @@ namespace PayrollManager
        {
            get
            {
-               using (var ctx = new PayrollDB(Properties.Settings.Default.PayrollDB))
+               using (var ctx = new PayrollDB())
                {
                    return new ObservableCollection<DataLayer.AccountEntry>(ctx.AccountEntries.Where(
                        ae => ae.PayrollItem.IncomeDeduction == true &&
@@ -53,7 +53,7 @@ namespace PayrollManager
        {
            get
            {
-               using (var ctx = new PayrollDB(Properties.Settings.Default.PayrollDB))
+               using (var ctx = new PayrollDB())
                {
                    return new ObservableCollection<DataLayer.AccountEntry>(ctx.AccountEntries.Where(
                        ae => ae.PayrollItem.IncomeDeduction == true &&
@@ -68,7 +68,7 @@ namespace PayrollManager
        {
            get
            {
-               using (var ctx = new PayrollDB(Properties.Settings.Default.PayrollDB))
+               using (var ctx = new PayrollDB())
                {
                    return new ObservableCollection<DataLayer.AccountEntry>(ctx.AccountEntries.Where(
                        ae => ae.PayrollItem.IncomeDeduction == false &&
@@ -101,7 +101,7 @@ namespace PayrollManager
                 try
                 {
                     if (CurrentPayrollJob == null || CurrentEmployee == null) return null;
-                    using (var ctx = new PayrollDB(Properties.Settings.Default.PayrollDB))
+                    using (var ctx = new PayrollDB())
                     {
                         var lst = from p in ctx.AccountEntries
                             where p.PayrollItem.IncomeDeduction == true &&
@@ -151,7 +151,7 @@ namespace PayrollManager
                 try
                 {
                     if (CurrentPayrollJob == null || CurrentEmployee == null) return null;
-                    using (var ctx = new PayrollDB(Properties.Settings.Default.PayrollDB))
+                    using (var ctx = new PayrollDB())
                     {
                         if (CurrentPayrollJob == null) return null;
                         var lst = from p in ctx.AccountEntries
@@ -195,7 +195,7 @@ namespace PayrollManager
 
         internal void EmailReport(ref Grid rpt)
        {
-           using (var ctx = new PayrollDB(Properties.Settings.Default.PayrollDB))
+           using (var ctx = new PayrollDB())
            {
                DataLayer.EmailTemplate etmp = ctx.EmailTemplates.FirstOrDefault(et => et.Key == "EmployeePayStub");
                if (CurrentEmployee.EmailAddress == null)

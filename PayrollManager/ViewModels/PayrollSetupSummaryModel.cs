@@ -22,7 +22,7 @@ namespace PayrollManager
 
         //void PayrollSetupItemsList_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         //{
-        //    using (var ctx = new PayrollDB(Properties.Settings.Default.PayrollDB))
+        //    using (var ctx = new PayrollDB())
         //    {
         //        foreach (PayrollSetupItem itm in e.NewItems)
         //        {
@@ -66,7 +66,7 @@ namespace PayrollManager
        //     get
        //     {
        //         if (_payrollSetupItemsList != null) return _payrollSetupItemsList;
-       //         using (var ctx = new PayrollDB(Properties.Settings.Default.PayrollDB))
+       //         using (var ctx = new PayrollDB())
        //         {
        //             _payrollSetupItemsList = new ObservableCollection<PayrollSetupItem>(ctx.PayrollSetupItems);
        //         }

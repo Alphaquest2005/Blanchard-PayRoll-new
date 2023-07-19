@@ -16,7 +16,7 @@ namespace PayrollManager
         {
 
 
-            using (var ctx = new PayrollDB(Properties.Settings.Default.PayrollDB))
+            using (var ctx = new PayrollDB())
             {
                 if (CurrentAccount == null) return;
                 if (CurrentAccount.AccountId == 0)
@@ -56,7 +56,7 @@ namespace PayrollManager
 	    {
             if (CurrentAccount == null) return;
             if (CurrentAccount.AccountId != 0)
-	            using (var ctx = new PayrollDB(Properties.Settings.Default.PayrollDB))
+	            using (var ctx = new PayrollDB())
 	            {
 	                var ritm = ctx.Accounts.First(x => x.AccountId == CurrentAccount.AccountId);
 	                ctx.Accounts.DeleteObject(ritm);
@@ -78,7 +78,7 @@ namespace PayrollManager
 
 	    public void NewAccount()
         {
-            using (var ctx = new PayrollDB(Properties.Settings.Default.PayrollDB))
+            using (var ctx = new PayrollDB())
             {
                 DataLayer.Account newemp =
                     ctx.Accounts.CreateObject<DataLayer.InstitutionAccounts>();

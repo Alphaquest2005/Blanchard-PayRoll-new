@@ -16,7 +16,7 @@ namespace PayrollManager
         public void SaveInstitution()
         {
             if (CurrentInstitution == null) return;
-            using (var ctx = new PayrollDB(Properties.Settings.Default.PayrollDB))
+            using (var ctx = new PayrollDB())
             {
                 if (CurrentInstitution.InstitutionId == 0)
                 {
@@ -55,7 +55,7 @@ namespace PayrollManager
         {
             if (CurrentInstitution == null) return;
             if (CurrentInstitution.InstitutionId != 0)
-            using (var ctx = new PayrollDB(Properties.Settings.Default.PayrollDB))
+            using (var ctx = new PayrollDB())
             {
                 var ritm = ctx.Institutions.First(x => x.InstitutionId == CurrentInstitution.InstitutionId);
                 ctx.Institutions.DeleteObject(ritm);
@@ -73,7 +73,7 @@ namespace PayrollManager
 
         public void NewInstitution()
         {
-            using (var ctx = new PayrollDB(Properties.Settings.Default.PayrollDB))
+            using (var ctx = new PayrollDB())
             {
                 DataLayer.Institution newemp = ctx.Institutions.CreateObject();
                 ctx.Institutions.AddObject(newemp);

@@ -22,7 +22,7 @@ namespace PayrollManager
         {
             if ((e.PropertyName == "CurrentEmployee" || e.PropertyName == "CurrentCompany" || e.PropertyName == "PayrollItems" || e.PropertyName == "CurrentPayrollJob") && CurrentEmployee != null && CurrentCompany != null && CurrentPayrollJob != null)
             {
-                using (var ctx = new PayrollDB(Properties.Settings.Default.PayrollDB))
+                using (var ctx = new PayrollDB())
                 {
                     var lst = (from p in ctx.PayrollItems//.AsEnumerable()
                         where p.EmployeeId == CurrentEmployee.EmployeeId &&

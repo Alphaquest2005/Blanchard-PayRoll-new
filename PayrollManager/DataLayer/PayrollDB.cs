@@ -46,6 +46,7 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("DataLayer", "CompanyPayrollJob", "Company", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PayrollManager.DataLayer.Company), "PayrollJob", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PayrollManager.DataLayer.PayrollJob), true)]
 [assembly: EdmRelationshipAttribute("DataLayer", "InstitutionInstitutionAccounts", "Institution", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PayrollManager.DataLayer.Institution), "InstitutionAccounts", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PayrollManager.DataLayer.InstitutionAccounts), true)]
 [assembly: EdmRelationshipAttribute("DataLayer", "InstitutionAccount", "Institution", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PayrollManager.DataLayer.Institution), "Account", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PayrollManager.DataLayer.Account), true)]
+[assembly: EdmRelationshipAttribute("DataLayer", "InstitutionAccount1", "Institution", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PayrollManager.DataLayer.Institution), "Account", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PayrollManager.DataLayer.Account), true)]
 
 #endregion
 
@@ -826,6 +827,44 @@ namespace PayrollManager.DataLayer
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Institution>("DataLayer.InstitutionAccount", "Institution", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DataLayer", "InstitutionAccount1", "Institution")]
+        public Institution Institution1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Institution>("DataLayer.InstitutionAccount1", "Institution").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Institution>("DataLayer.InstitutionAccount1", "Institution").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Institution> Institution1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Institution>("DataLayer.InstitutionAccount1", "Institution");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Institution>("DataLayer.InstitutionAccount1", "Institution", value);
                 }
             }
         }
@@ -2905,6 +2944,28 @@ namespace PayrollManager.DataLayer
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Account>("DataLayer.InstitutionAccount", "Account", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DataLayer", "InstitutionAccount1", "Account")]
+        public EntityCollection<Account> Accounts1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Account>("DataLayer.InstitutionAccount1", "Account");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Account>("DataLayer.InstitutionAccount1", "Account", value);
                 }
             }
         }

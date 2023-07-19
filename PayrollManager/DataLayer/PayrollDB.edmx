@@ -806,6 +806,10 @@
             <End Role="Institution" EntitySet="Institutions" />
             <End Role="Account" EntitySet="Accounts" />
           </AssociationSet>
+          <AssociationSet Name="InstitutionAccount1" Association="DataLayer.InstitutionAccount1">
+            <End Role="Institution" EntitySet="Institutions" />
+            <End Role="Account" EntitySet="Accounts" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="AccountEntry">
           <Key>
@@ -839,6 +843,7 @@
           <NavigationProperty Name="AccountType" Relationship="DataLayer.FK_Accounts_AccountTypes" FromRole="Account" ToRole="AccountType" />
           <NavigationProperty Name="EmployeeAccounts" Relationship="DataLayer.FK_EmployeeAccount_inherits_Account" FromRole="Account" ToRole="Accounts_EmployeeAccount" />
           <NavigationProperty Name="Institution" Relationship="DataLayer.InstitutionAccount" FromRole="Account" ToRole="Institution" />
+          <NavigationProperty Name="Institution1" Relationship="DataLayer.InstitutionAccount1" FromRole="Account" ToRole="Institution" />
         </EntityType>
         <EntityType Name="EmployeeAccount">
           <Key>
@@ -936,6 +941,7 @@
           <NavigationProperty Name="PayeeAccounts" Relationship="DataLayer.InstitutionInstitutionAccounts" FromRole="Institution" ToRole="InstitutionAccounts" />
           <NavigationProperty Name="Accounts" Relationship="DataLayer.InstitutionAccount" FromRole="Institution" ToRole="Account" />
           <Property Name="EmailAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Accounts1" Relationship="DataLayer.InstitutionAccount1" FromRole="Institution" ToRole="Account" />
         </EntityType>
         <EntityType Name="PayrollEmployeeSetup">
           <Key>
@@ -1386,6 +1392,18 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="InstitutionAccount">
+          <End Type="DataLayer.Institution" Role="Institution" Multiplicity="1" />
+          <End Type="DataLayer.Account" Role="Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Institution">
+              <PropertyRef Name="InstitutionId" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="InstitutionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="InstitutionAccount1">
           <End Type="DataLayer.Institution" Role="Institution" Multiplicity="1" />
           <End Type="DataLayer.Account" Role="Account" Multiplicity="*" />
           <ReferentialConstraint>

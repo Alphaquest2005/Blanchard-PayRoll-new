@@ -42,7 +42,7 @@ namespace PayrollManager.Views
         private void GenPayrollBtn_MouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
         {
              
-           BaseViewModel.Instance.GeneratePayrollItems();
+           BaseViewModel.Instance.GeneratePayrollItems1.Execute();
         }
 
         private void PostPayrollBtn_MouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)

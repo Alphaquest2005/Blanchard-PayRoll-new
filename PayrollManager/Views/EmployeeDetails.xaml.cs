@@ -65,7 +65,7 @@ namespace PayrollManager
 	            if (im.CurrentEmployee == null) return;
                 var emp = im.CurrentEmployee;
                 im.SaveEmployee();
-	            using (var ctx = new PayrollDB(Properties.Settings.Default.PayrollDB))
+	            using (var ctx = new PayrollDB())
 	            {
 
 	                DataLayer.EmployeeAccount ne = (DataLayer.EmployeeAccount) e.Row.Item;

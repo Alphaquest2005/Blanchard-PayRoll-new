@@ -54,7 +54,7 @@ namespace PayrollManager
         {
             get
             {
-                using (var ctx = new PayrollDB(Properties.Settings.Default.PayrollDB))
+                using (var ctx = new PayrollDB())
                 {
                     return new ListCollectionView(ctx.ChargeTypes.ToList());
                 }
@@ -67,7 +67,7 @@ namespace PayrollManager
 	    public void SavePayrollEmployeeSetup()
 	    {
             if (CurrentPayrollEmployeeSetup == null) return;
-            using (var ctx = new PayrollDB(Properties.Settings.Default.PayrollDB))
+            using (var ctx = new PayrollDB())
 	        {
 	            if (CurrentPayrollEmployeeSetup.PayrollEmployeeSetupId == 0)
 	            {
@@ -97,7 +97,7 @@ namespace PayrollManager
 	    {
             
             if (pi.PayrollEmployeeSetupId != 0)
-	        using (var ctx = new PayrollDB(Properties.Settings.Default.PayrollDB))
+	        using (var ctx = new PayrollDB())
 	        {
 	            var ritm = ctx.PayrollEmployeeSetups.First(x => x.PayrollEmployeeSetupId == pi.PayrollEmployeeSetupId);
                 ctx.PayrollEmployeeSetups.DeleteObject(ritm);

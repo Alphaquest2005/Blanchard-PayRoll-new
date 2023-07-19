@@ -31,7 +31,7 @@ namespace PayrollManager.DataLayer
                         if (BaseViewModel.Instance.ConfigPayrollItem(p, this,false) == BaseViewModel.TriBoolState.Success)
                         {
                             double amt =
-                                Convert.ToDouble(BaseViewModel.GetPayrollAmount(Convert.ToDouble(this.BaseAmount), p));
+                                Convert.ToDouble(GeneratePayrollItems.GetPayrollAmount(Convert.ToDouble(this.BaseAmount), p));
                             //p = null;
                             p = null;
                             _calcAmount = amt;

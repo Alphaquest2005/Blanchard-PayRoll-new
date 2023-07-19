@@ -1,7 +1,5 @@
 ﻿{
-  "dependencies": {
-    "PostSharp": "5.0.33"
-  },
+  "dependencies": {},
   "frameworks": {
     "net45": {}
   },

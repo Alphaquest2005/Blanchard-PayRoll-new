@@ -30,7 +30,7 @@ namespace PayrollManager
 		{
 			get
 			{
-				using (var ctx = new PayrollDB(Properties.Settings.Default.PayrollDB))
+				using (var ctx = new PayrollDB())
 				{
 					return new ObservableCollection<DataLayer.Account>(ctx.Accounts
 						.OfType<DataLayer.Account>());
@@ -40,7 +40,7 @@ namespace PayrollManager
 
 		public void SavePayrollSetupItem()
 		{
-			using (var ctx = new PayrollDB(Properties.Settings.Default.PayrollDB))
+			using (var ctx = new PayrollDB())
 			{
                 if (CurrentPayrollSetupItem == null) return;
                 if (CurrentPayrollSetupItem.PayrollSetupItemId == 0)
@@ -73,7 +73,7 @@ namespace PayrollManager
             if (CurrentPayrollSetupItem == null) return;
             if (CurrentPayrollSetupItem.PayrollSetupItemId != 0)
 			{
-				using (var ctx = new PayrollDB(Properties.Settings.Default.PayrollDB))
+				using (var ctx = new PayrollDB())
 				{
 					var ritm = ctx.PayrollSetupItems.First(
 						x => x.PayrollSetupItemId == CurrentPayrollSetupItem.PayrollSetupItemId);
@@ -91,7 +91,7 @@ namespace PayrollManager
 
 		public void NewPayrollSetupItem()
 		{
-			using (var ctx = new PayrollDB(Properties.Settings.Default.PayrollDB))
+			using (var ctx = new PayrollDB())
 			{
 				PayrollSetupItem newpi = ctx.PayrollSetupItems.CreateObject();
 				ctx.PayrollSetupItems.AddObject(newpi);

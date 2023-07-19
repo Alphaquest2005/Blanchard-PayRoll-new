@@ -82,7 +82,7 @@ namespace PayrollManager
 		//       {
 		//           if (_employeelist == null)
 		//           {
-		//               using (var ctx = new PayrollDB(Properties.Settings.Default.PayrollDB))
+		//               using (var ctx = new PayrollDB())
 		//               {
 		//                   try
 		//                   {

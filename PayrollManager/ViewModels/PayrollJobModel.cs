@@ -24,7 +24,7 @@ namespace PayrollManager
                 "Delete Payroll Job", MessageBoxButton.YesNo);
             if (res == MessageBoxResult.No) return;
             if(CurrentPayrollJob.PayrollJobId != 0)
-            using (var ctx = new PayrollDB(Properties.Settings.Default.PayrollDB))
+            using (var ctx = new PayrollDB())
             {
                 ctx.PayrollJobs.Attach(CurrentPayrollJob);
                 ctx.PayrollJobs.DeleteObject(CurrentPayrollJob);
@@ -43,7 +43,7 @@ namespace PayrollManager
         public void NewPayrollJob()
         {
             DataLayer.PayrollJob newemp;
-            using (var ctx = new PayrollDB(Properties.Settings.Default.PayrollDB))
+            using (var ctx = new PayrollDB())
             {
 
                 newemp = ctx.PayrollJobs.CreateObject<DataLayer.PayrollJob>();

@@ -154,7 +154,7 @@ namespace PayrollManager
 
         private void GeneratePayrollItems(object sender, MouseButtonEventArgs e)
         {
-             BaseViewModel.Instance.GeneratePayrollItems();
+             BaseViewModel.Instance.GeneratePayrollItems1.Execute();
         }
 
         private void ReviewPayroll(object sender, MouseButtonEventArgs e)
